@@ -4,10 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>عبد الكريم عجاج - الملف المهني</title>
+    <script>
+      window.onerror = function(message, source, lineno, colno, error) {
+        var errorContainer = document.createElement('div');
+        errorContainer.style.position = 'fixed';
+        errorContainer.style.top = '0';
+        errorContainer.style.left = '0';
+        errorContainer.style.width = '100%';
+        errorContainer.style.backgroundColor = 'red';
+        errorContainer.style.color = 'white';
+        errorContainer.style.padding = '20px';
+        errorContainer.style.zIndex = '9999';
+        errorContainer.innerHTML = '<h3>Error:</h3><p>' + message + '</p><p>Source: ' + source + ':' + lineno + '</p>';
+        document.body.appendChild(errorContainer);
+      };
+      window.onunhandledrejection = function(event) {
+        var errorContainer = document.createElement('div');
+        errorContainer.style.position = 'fixed';
+        errorContainer.style.top = '50px';
+        errorContainer.style.left = '0';
+        errorContainer.style.width = '100%';
+        errorContainer.style.backgroundColor = 'orange';
+        errorContainer.style.color = 'white';
+        errorContainer.style.padding = '20px';
+        errorContainer.style.zIndex = '9999';
+        errorContainer.innerHTML = '<h3>Unhandled Rejection:</h3><p>' + event.reason + '</p>';
+        document.body.appendChild(errorContainer);
+      };
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
